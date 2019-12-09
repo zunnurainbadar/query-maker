@@ -1,6 +1,6 @@
 # Query Maker
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+<!-- [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) -->
 Query maker is a simple tool for making sql queries from data in the form of objects and arrays.
 
 **Examples**
