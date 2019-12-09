@@ -1,0 +1,19 @@
+{
+  "name": "dynamic_query_builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zunnurainbadar/dynamic_query_builder.git"
+  },
+  "author": "Zunnurain Badar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zunnurainbadar/dynamic_query_builder/issues"
+  },
+  "homepage": "https://github.com/zunnurainbadar/dynamic_query_builder#readme"
+}
