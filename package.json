@@ -1,19 +1,23 @@
 {
-  "name": "dynamic_query_builder",
+  "name": "query-maker",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zunnurainbadar/dynamic_query_builder.git"
+    "url": "https://github.com/zunnurainbadar/query-maker"
   },
-  "author": "Zunnurain Badar",
+  "author": {
+    "name": "Zunnurain Badar",
+    "email": "zunnurainbadar@gmail.com",
+    "url": "https://zunnurainbadar.github.io"
+  },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zunnurainbadar/dynamic_query_builder/issues"
+    "url": "https://github.com/zunnurainbadar/query-maker/issues"
   },
-  "homepage": "https://github.com/zunnurainbadar/dynamic_query_builder#readme"
+  "homepage": "https://github.com/zunnurainbadar/query-maker#readme"
 }
