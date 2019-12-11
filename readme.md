@@ -200,7 +200,7 @@ console.log(result)
 const queryMaker = require('query-maker'); 
 let options = {
     table:"tableName",
-    data:{"fieldOne":1,"fieldTwo":2}
+    data:[{"fieldOne":1,"fieldTwo":2},{"fieldOne":3,"fieldTwo":4}]
 }
 let result = queryMaker.getInsertQuery(options);
 console.log(result)
