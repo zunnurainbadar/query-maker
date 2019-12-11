@@ -237,7 +237,7 @@ let options = {
     table:"tableName",
     condition:{"fieldOne":3}
 }
-let result = queryMaker.getUpdateQuery(options);
+let result = queryMaker.getDeleteQuery(options);
 console.log(result)
 //result 
 { query: 'DELETE FROM tableName WHERE fieldOne=$1',
