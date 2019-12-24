@@ -1,6 +1,5 @@
 # Query Maker
 
-<!-- [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) -->
 Query maker is a simple tool with 0 dependency package for making sql queries from data in the form of objects and arrays.
 
 
@@ -8,13 +7,10 @@ Query maker is a simple tool with 0 dependency package for making sql queries fr
 
 ```
 $ npm install query-maker
-
 ```
 or
-
 ```
 $ yarn add query-maker
-
 ```
 
 **Examples**
@@ -34,7 +30,24 @@ query:'SELECT  *  FROM tableName ',
 values: [] 
 }
 ```
+**Select Some Columns**
+You can select some of the data by providing data Option. You have to provide an object or array of objects. Object key will be the alias and Object value will be your column name in your DB or any aggregate function. 
+```js
+const queryMaker = require('query-maker'); 
+let options = {
+    table:tableName,
+     data:[{"field1":"fieldOne"}]
+}
+let result = queryMaker.getSelectQuery(options);
+console.log(result)
+//result 
+{ 
+query:'SELECT  fieldOne as field1  FROM tableName ',
+values: [] 
+}
+```
 **Where Condition**
+For AND Operator you have to put all conditions inside an object and for OR operator you have to put condition objects inside an Array. For Example:
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -82,7 +95,7 @@ console.log(result)
     values: [ 2, 3 ] 
 }
 ``` 
-**Where Condition with AND and OR**
+**AND with OR**
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -98,22 +111,41 @@ console.log(result)
     values: [ 2, 3, 4 ] }
 ``` 
 **Joins**
+You can match join coniditions by value and by reference. To match condition by value you have to enclose your value in ''.
+
+Match data by reference in join conditions
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
     table:"tableName1 table1",
     data:[{"fieldOne":"table1.fieldOne"}],
-    join:[{type:"inner",table:"tableName2 table2",condition:{"table1.fieldOne":1,"table2.fieldTwo":3}}],
+    join:[{type:"inner",table:"tableName2 table2",condition:{"table2.fieldTwo":"table1.fieldOne"}}],
     condition:{"table2.fieldOne":2}
 }
 let result = queryMaker.getSelectQuery(options);
 console.log(result)
 //result 
 { 
-    query:'SELECT table1.fieldOne as fieldOne FROM tableName1 table1 inner join     tableName2 table2 on table1.fieldOne=$1 AND table2.fieldTwo=$2 WHERE table2.fieldOne=$3',
-    values: [ 1, 3, 2 ] 
+    query:'SELECT table1.fieldOne as id FROM tableName1 table1 inner join tableName2 table2 on table2.fieldTwo=table1.fieldOne WHERE table2.fieldOne=$1',
+    values: [ 2 ]
 }
-``` 
+```
+Match data by value in join conditions
+```js
+const queryMaker = require('query-maker');
+let options = {
+    table:"tableName1 table1",
+    data:[{"fieldOne":"table1.fieldOne"}],
+    join:[{type:"left",table:"tableName2 table2",condition:{"table2.fieldOne":"'Text'"}}],
+    condition:{"table2.fieldTwo":2}
+}
+let result = queryMaker.getSelectQuery(options);
+console.log(result)
+{ 
+    query:'SELECT table1.fieldOne as fieldOne FROM tableName1 table1 right join tableName2 table2 on table2.fieldOne='Text' WHERE table2.fieldTwo=$1',
+    values: [ 2 ] 
+}
+```
 **Order By**
 ```js
 const queryMaker = require('query-maker'); 
@@ -244,3 +276,45 @@ console.log(result)
   values: [ 3 ] 
 }
 ```
+
+> **Options**
+
+**Insert Options**
+| Option        | Type           | Description     |
+| ------------- | -------------  | -------------   |
+| table         | String         | Table Name      |
+| data          | Object Or Array| Date to Insert |
+
+**Select Options**
+| Option        | Type            | Description                     |
+| ------------- | -------------   | -------------                   |
+| table         | String          | Table Name                      |
+| data          | Object Or Array | Column names in select of query |
+| join          | Object Or Array | Joins in a query                |
+| condition     | Object Or Array | Where conditions in a query     |
+| orderBy       | Array           | Column Names for Ordering       |
+| groupBy       | Array           | Column Names for Grouping       |
+| limit         | Integer         | Number of Records to get        |
+| offset        | Integer         | Number of Records to skip       |
+
+**Join Options**
+
+| Option        | Type           | Description       |
+| ------------- | -------------  | -------------     |
+| table         | String         | Table Name        |
+| type          | String         | Type Of Join      |
+| condition     | Object Or Array| Condition Of Join |
+
+**Update Options**
+| Option        | Type           | Description                 |
+| ------------- | -------------  | -------------               |
+| table         | String         | Table Name                  |
+| data          | Object         | Data to Update              |
+| condition     | Object Or Array| Where conditions in a query |
+
+**Delete Options**
+| Option        | Type          | Description                  |
+| ------------- | ------------- | -------------                |
+| table         | String        | Table Name                   |
+| condition     | Object Or Array| Where conditions in a query |
+

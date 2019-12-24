@@ -112,9 +112,7 @@ functions.getSelectQuery = (configs) =>{
                             error.message = "Condition should not contain null or empty values";
                             throw error;
                         }
-                        or_conditions.push(`${key}=$${i}`);
-                        values.push(iterator[key]);
-                        i++;
+                        or_conditions.push(`${key}=${functions.removeSpecial(iterator[key])}`);
                     }
                     or_conditions = `(${or_conditions.join(" AND ")})`;
                     conditions_array.push(or_conditions);
@@ -130,9 +128,7 @@ functions.getSelectQuery = (configs) =>{
                         error.message = "Condition should not contain null or empty values";
                         throw error;
                     }
-                    conditions_array.push(`${key}=$${i}`);
-                    values.push(join['condition'][key]);
-                    i++;
+                    conditions_array.push(`${key}=${functions.removeSpecial(join['condition'][key])}`);
                 }
                 join_condition = conditions_array.join(' AND ');
             }
@@ -426,5 +422,20 @@ functions.getDeleteQuery = (configs) =>{
         values: values
     }
     return response;
+}
+functions.removeSpecial = (string) =>{
+    let regex = /^'(.).*\1'$/;
+    if(!regex.test(string)){
+        return string;
+    }
+    string = string.slice(1,-1);
+    string = string.replace(/&/g, '&amp;')
+    .replace(/'/g, '&apos;')
+    .replace(/"/g, '&quot;')
+    .replace(/\\/g, '\\\\')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\u0000/g, '\\0');
+    return `'${string}'`;
 }
 module.exports = functions;

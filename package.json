@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/zunnurainbadar/query-maker/issues"
   },
-  "homepage": "https://github.com/zunnurainbadar/query-maker#readme"
+  "homepage": "https://github.com/zunnurainbadar/query-maker#readme",
+  "keywords": [
+    "query-maker",
+    "queryMaker",
+    "query",
+    "maker"
+  ]
 }
