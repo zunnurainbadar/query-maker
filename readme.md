@@ -14,7 +14,10 @@ $ yarn add query-maker
 ```
 
 **Examples**
+
+
 > **Select**
+
 
 **Simple Select**
 ```js
@@ -210,7 +213,10 @@ console.log(result)
     values: [] 
 }
 ```
+
+
 > **Insert**
+
 
 **Single Insert**
 ```js
@@ -242,7 +248,10 @@ console.log(result)
     values: [ 1, 2, 3, 4 ] 
 }
 ```
+
+
 > **Update**
+
 
 **Simple Update**
 ```js
@@ -260,7 +269,10 @@ console.log(result)
     values: [ 1, 2, 3 ] 
 }
 ```
+
+
 > **Delete**
+
 
 **Simple Delete**
 ```js
@@ -277,7 +289,9 @@ console.log(result)
 }
 ```
 
+
 > **Options**
+
 
 **Insert Options**
 
