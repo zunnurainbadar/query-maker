@@ -280,12 +280,16 @@ console.log(result)
 > **Options**
 
 **Insert Options**
+
+
 | Option        | Type           | Description     |
 | ------------- | -------------  | -------------   |
 | table         | String         | Table Name      |
-| data          | Object Or Array| Date to Insert |
+| data          | Object Or Array| Date to Insert  |
 
 **Select Options**
+
+
 | Option        | Type            | Description                     |
 | ------------- | -------------   | -------------                   |
 | table         | String          | Table Name                      |
@@ -299,20 +303,27 @@ console.log(result)
 
 **Join Options**
 
+
 | Option        | Type           | Description       |
 | ------------- | -------------  | -------------     |
 | table         | String         | Table Name        |
 | type          | String         | Type Of Join      |
 | condition     | Object Or Array| Condition Of Join |
 
+
 **Update Options**
+
+
 | Option        | Type           | Description                 |
 | ------------- | -------------  | -------------               |
 | table         | String         | Table Name                  |
 | data          | Object         | Data to Update              |
 | condition     | Object Or Array| Where conditions in a query |
 
+
 **Delete Options**
+
+
 | Option        | Type          | Description                  |
 | ------------- | ------------- | -------------                |
 | table         | String        | Table Name                   |
