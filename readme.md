@@ -20,6 +20,8 @@ $ yarn add query-maker
 
 
 **Simple Select**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -33,7 +35,11 @@ query:'SELECT  *  FROM tableName ',
 values: [] 
 }
 ```
+
+
 **Select Some Columns**
+
+
 You can select some of the data by providing data Option. You have to provide an object or array of objects. Object key will be the alias and Object value will be your column name in your DB or any aggregate function. 
 ```js
 const queryMaker = require('query-maker'); 
@@ -49,7 +55,11 @@ query:'SELECT  fieldOne as field1  FROM tableName ',
 values: [] 
 }
 ```
+
+
 **Where Condition**
+
+
 For AND Operator you have to put all conditions inside an object and for OR operator you have to put condition objects inside an Array. For Example:
 ```js
 const queryMaker = require('query-maker'); 
@@ -66,7 +76,11 @@ query:'SELECT  *  FROM tableName  WHERE fieldOne=$1',
 values: [ 1 ] 
 }
 ```
+
+
 **AND**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -82,7 +96,11 @@ console.log(result)
     values: [ 2, 3 ] 
 }
 ```
+
+
 **OR**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -98,7 +116,11 @@ console.log(result)
     values: [ 2, 3 ] 
 }
 ``` 
+
+
 **AND with OR**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -113,7 +135,11 @@ console.log(result)
     query:'SELECT  *  FROM tableName  WHERE (fieldOne=$1 AND fieldTwo=$2) OR (fieldThree=$3)',
     values: [ 2, 3, 4 ] }
 ``` 
+
+
 **Joins**
+
+
 You can match join coniditions by value and by reference. To match condition by value you have to enclose your value in ''.
 
 Match data by reference in join conditions
@@ -149,7 +175,11 @@ console.log(result)
     values: [ 2 ] 
 }
 ```
+
+
 **Order By**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -165,7 +195,11 @@ console.log(result)
     values: [] 
 }
 ``` 
+
+
 **Group By**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -181,7 +215,11 @@ console.log(result)
     values: [] 
 }
 ``` 
+
+
 **Limit**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -196,8 +234,12 @@ console.log(result)
     query:'SELECT fieldOne as fieldOne,count(fieldTwo) as count FROM tableName  Limit 10',
     values: [] 
 }
-``` 
+```
+
+
 **Offset**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -219,6 +261,8 @@ console.log(result)
 
 
 **Single Insert**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -233,7 +277,11 @@ console.log(result)
     values: [ 1, 2 ] 
 }
 ```
+
+
 **Multiple Insert**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -254,6 +302,8 @@ console.log(result)
 
 
 **Simple Update**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -275,6 +325,8 @@ console.log(result)
 
 
 **Simple Delete**
+
+
 ```js
 const queryMaker = require('query-maker'); 
 let options = {
@@ -301,6 +353,7 @@ console.log(result)
 | table         | String         | Table Name      |
 | data          | Object Or Array| Data to Insert  |
 
+
 **Select Options**
 
 
@@ -314,6 +367,7 @@ console.log(result)
 | groupBy       | Array           | Column Names for Grouping       |
 | limit         | Integer         | Number of Records to get        |
 | offset        | Integer         | Number of Records to skip       |
+
 
 **Join Options**
 
