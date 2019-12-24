@@ -285,7 +285,7 @@ console.log(result)
 | Option        | Type           | Description     |
 | ------------- | -------------  | -------------   |
 | table         | String         | Table Name      |
-| data          | Object Or Array| Date to Insert  |
+| data          | Object Or Array| Data to Insert  |
 
 **Select Options**
 
